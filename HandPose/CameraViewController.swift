@@ -230,7 +230,6 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 return VNImagePointForNormalizedPoint($0.location, Int(width), Int(height))
             }
             print("imagePoints:")
-            
             print(imagePoints)
             
             
