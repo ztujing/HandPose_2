@@ -108,17 +108,13 @@ class CameraViewController: UIViewController {
         // Check that we have both points.
         //空配列　つくる
         var imagePointConverted:[CGPoint] = []
-        let previewLayer = cameraView.previewLayer
+        //let previewLayer = cameraView.previewLayer
         //ループ
         for imagePoint in imagePoints {
-            if imagePoint == nil {
-                print("imagePoint:")
-                print("nil")
-                return
-            }else {
-        // Convert points from AVFoundation coordinates to UIKit coordinates.
-            
-            imagePointConverted.append(imagePoint!)
+            if let point = imagePoint {
+               
+                // Convert points from AVFoundation coordinates to UIKit coordinates.
+                imagePointConverted.append(point)
 
             }
         }
@@ -231,7 +227,6 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             }
             print("imagePoints:")
             print(imagePoints)
-            
             
         } catch {
             cameraFeedSession?.stopRunning()
